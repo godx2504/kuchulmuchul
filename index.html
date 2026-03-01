@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#ff4e91,#ff9ecf);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+text-align:center;
+color:white;
+position:relative;
+}
+
+/* Floating hearts */
+.heart{
+position:absolute;
+bottom:-20px;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+.main-text h1{
+font-family:'Dancing Script', cursive;
+font-size:3rem;
+}
+
+.main-text p{
+margin-top:10px;
+font-size:1.2rem;
+}
+
+/* Popup */
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:#ff2e7e;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:350px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+display:none;
+z-index:10;
+}
+
+.popup h2{
+font-family:'Dancing Script', cursive;
+margin-bottom:10px;
+}
+
+.popup p{
+font-size:14px;
+line-height:1.5;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#ff2e7e;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+@media(max-width:600px){
+.main-text h1{font-size:2.2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-text">
+<h1>Happy Birthday My Love 💖</h1>
+<p>You are my today, tomorrow & forever ❤️</p>
+<button onclick="openPopup()">Open Your Surprise 🎁</button>
+</div>
+
+<div class="popup" id="popup">
+<h2>My Dearest Chi Chi ❤️</h2>
+<p>
+On your special day, I just want you to know  
+you are the most precious gift in my life.  
+Your smile lights up my world.  
+I promise to always love you and stand by your side forever 💕
+</p>
+<button onclick="closePopup()">Close 💌</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+function openPopup(){
+document.getElementById("popup").style.display="block";
+confetti({
+particleCount:200,
+spread:120,
+origin:{y:0.6}
+});
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+/* floating hearts */
+setInterval(()=>{
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+15+"px";
+heart.style.animationDuration=Math.random()*3+3+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},6000);
+},500);
+</script>
+
+</body>
+</html>
